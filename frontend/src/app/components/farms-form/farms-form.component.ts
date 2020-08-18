@@ -52,6 +52,7 @@ export class FarmsFormComponent implements OnInit {
   }
 
   onSubmitFincaPersona(){
+
     this.fincaPersona.id_finca = this.finca.id_finca;
     this._fincaService.createFincaPersona(this.fincaPersona).subscribe(
       response => {
@@ -62,9 +63,40 @@ export class FarmsFormComponent implements OnInit {
       }
     );
 
+    this.personaParentezco.id_persona1 = this.finca.id_propietario;
+    this.personaParentezco.id_persona2 = this.fincaPersona.id_persona;
+    this._fincaService.createPersonaParentezco(this.personaParentezco).subscribe(
+      response => {
+        this.personaParentezco = response.personaParentezco;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    Swal.fire(
+      'Registrado!',
+      'Has agregado correctamente un familiar a esta finca!',
+      'success'
+    );
+
   }
 
   onSubmitFincaTrabajador(){
 
+    this.fincaTrabajador.id_finca = this.finca.id_finca;
+    this._fincaService.createFincaTrabajador(this.fincaTrabajador).subscribe(
+      response => {
+        this.fincaTrabajador = response.fincaTrabajador;
+        Swal.fire(
+          'Registrado!',
+          'Has agregado correctamente un trabajador a esta finca!',
+          'success'
+        );
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

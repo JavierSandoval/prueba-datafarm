@@ -1,0 +1,30 @@
+<header id="header">
+    <div class="center">
+        <!--Logo-->
+        <div id="logo">
+            <img src="assets/images/logo_datafarm.jpg" class="app-logo" alt="Logotipo">
+            <span id="brand">
+                <h1>data<strong>farm</strong></h1>
+            </span>
+        </div>
+
+        <!--Menu-->
+        <nav id="menu">
+            <ul>
+                <li>
+                    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/Fincas']" [routerLinkActive]="['active']">Fincas</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/Personas']" [routerLinkActive]="['active']">Personas</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/Trabajadores']" [routerLinkActive]="['active']">Trabajadores</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="clearfix"></div>
+    </div>
+</header>

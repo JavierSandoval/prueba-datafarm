@@ -1,1 +1,84 @@
-<p>farms-form works!</p>
+<div id="fincaForm" class="row">
+    <div class="col-sm-10 col-md-10 col-lg-11 col-xl-11 mt-4 ml-1 mr-1 pt-3 px-5 pb-3 formBox">
+        <h3 class="pb-2">Registrar Finca</h3>
+
+        <form name="fincaForm" #fincaForm="ngForm" (ngSubmit)="onSubmitFinca()">
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="nombre_finca">Nombre finca</label>
+                <input type="text" class="form-control" name="nombre_finca" #nombre_finca="ngModel" [(ngModel)]="finca.nombre_finca" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="id_propietario">ID del propietario</label>
+                <input type="number" class="form-control" name="id_propietario" #id_propietario="ngModel" [(ngModel)]="finca.id_propietario" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="id_departamento">Departamento</label>
+                <select class="form-control" name="id_departamento" #id_departamento="ngModel" [(ngModel)]="finca.id_departamento">
+                  <option value="1">Caldas</option>
+                  <option value="2">Risaralda</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="id_municipio">Municipio</label>
+                <select class="form-control" name="id_municipio" #id_municipio="ngModel" [(ngModel)]="finca.id_municipio">
+                  <option value="1">Manizales</option>
+                  <option value="2">Pereira</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="inputState">Vereda</label>
+                <select class="form-control" name="id_vereda" #id_vereda="ngModel" [(ngModel)]="finca.id_vereda">
+                  <option value="1">Alto Bonito</option>
+                  <option value="2">El Porvenir</option>
+                  <option value="3">Tablazo</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" [disabled]="fincaForm.invalid" class="btn btn-pink">Registrar</button>
+          </form>
+
+          <div class="container border mt-4 p-4">
+            <form id="personasFinca" name="fincaPersonaForm" #fincaPersonaForm="ngForm" (ngSubmit)="onSubmitFincaPersona()">
+                <h4 class="pb-2">Agregar familiares asociados a esta finca</h4>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="id_persona">ID del familiar</label>
+                    <input type="number" class="form-control" name="id_persona" #id_persona="ngModel" [(ngModel)]="fincaPersona.id_persona" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="id_parentezco">Tipo de parentezco</label>
+                    <select class="form-control" name="id_parentezco" #id_parentezco="ngModel" [(ngModel)]="personaParentezco.id_parentezco" required>
+                      <option value="1">Esposo(a)</option>
+                      <option value="2">Hijo(a)</option>
+                      <option value="3">Hermano(a)</option>
+                      <option value="4">Sobrino(a)</option>
+                      <option value="5">Tío(a)</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" [disabled]="fincaPersonaForm.invalid" class="btn btn-pink">Registrar familiar</button>
+              </form>
+          </div>
+
+          <div class="container border mt-4 p-4">
+            <form name="fincaTrabajadorForm" #fincaTrabajadorForm="ngForm" (ngSubmit)="onSubmitFincaTrabajador()">
+                <h4 class="pb-2">Agregar trabajadores asociados a esta finca</h4>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="id_trabajador">ID del trabajador</label>
+                    <input type="text" class="form-control" name="id_trabajador" #id_trabajador="ngModel" [(ngModel)]="fincaTrabajador.id_trabajador" required>
+                  </div>
+                  <div class="form-group col-md-6 pt-4">
+                    <button type="submit" [disabled]="fincaTrabajadorForm.invalid" class="btn btn-pink">Registrar trabajador</button>
+                  </div>
+                </div>
+                
+              </form>
+          </div>
+
+
+    </div>
+</div>
